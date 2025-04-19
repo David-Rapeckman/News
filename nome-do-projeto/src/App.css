@@ -1,42 +1,68 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Estilo base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #e6f0ff; /* azul claro */
+}
+
+/* Container principal */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Cabeçalho */
+.header {
+  background-color: #003f5c; /* azul petróleo */
+  color: white;
+  padding: 2rem;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Notícias urgentes */
+.breaking-news {
+  background-color: #ffdb4d;
+  color: #333;
+  padding: 1rem;
+  margin: 2rem 0;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 10px;
+  font-weight: bold;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Container das notícias em cards */
+.news-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  width: 100%;
 }
 
-.card {
-  padding: 2em;
+/* Cada card de notícia */
+.news-card {
+  background-color: white;
+  border-left: 5px solid #003f5c;
+  padding: 1rem;
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
 }
 
-.read-the-docs {
-  color: #888;
+.news-card:hover {
+  transform: translateY(-5px);
 }

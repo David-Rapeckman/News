@@ -1,39 +1,29 @@
-import { useEffect, useState } from 'react';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import './styles/Global.css';
+import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+import NewsCard from './components/NewsCard';
+import Footer from './components/Footer';
 import NewsFeed from './NewsFeed';
 
 function App() {
   const [category, setCategory] = useState('bolsa');
   const [darkMode, setDarkMode] = useState(false);
 
-  const toggleTheme = () => setDarkMode(prev => !prev);
+  const toggleTheme = () => setDarkMode(!darkMode);
 
   useEffect(() => {
     document.body.className = darkMode ? 'dark' : '';
   }, [darkMode]);
 
   return (
-    <div className={darkMode ? 'App dark' : 'App'}>
-      <aside className="sidebar">
-        <h2>📂 Categorias</h2>
-        <ul>
-          <li onClick={() => setCategory('bolsa')}>📊 Ações</li>
-          <li onClick={() => setCategory('economia')}>💰 Economia</li>
-          <li onClick={() => setCategory('financas')}>📚 Finanças</li>
-        </ul>
-      </aside>
-
-      <header className="header">
-        <h1>📈 Financial Blog</h1>
-      </header>
-
+    <div className={`app ${darkMode ? 'dark' : ''}`}>
+      <Header toggleTheme={toggleTheme} darkMode={darkMode} />
+      <Sidebar setCategory={setCategory} />
       <main className="content">
         <NewsFeed category={category} />
       </main>
-
-      <button className="toggle-theme" onClick={toggleTheme}>
-        {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
-      </button>
+      <Footer />
     </div>
   );
 }
